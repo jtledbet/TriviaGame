@@ -75,7 +75,7 @@ var allQuestions = [{
     a2: "Hill",
     a3: "Sand",
     a4: "Stone",
-    correct: "Westeros"
+    correct: "Hill"
 }, {
     q: "\"I always hated crossbows. Take too long to load!\"",
     a1: "Rodrik Cassel",
