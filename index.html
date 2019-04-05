@@ -1,15 +1,56 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Game of Thrones Trivia!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets\css\style.css">
-    <script src="assets\javascript\game.js"></script>
 </head>
-<body>
-    
 
+
+<body>
+    <div class="flex-container bg-transparent" id="main">
+        <div class="flex-container bg-transparent" id="clock">00:00</div>
+        <div class="flex-container bg-transparent" id="questionForm">
+
+            <div class="card">
+                <div class="flex-container p-2 bd-highlight card-header">
+                    <h2 id="questionBox">Question goes here?</h2>
+                </div>
+            </div>
+            
+            <div class="flex-container d-flex card-body" id="answerForm">
+                <div class="form-column">
+                    <div class="col-auto">
+                            <ul class="list-group">
+                                <li class="list-group-item" id="ans1" value="1">answer 1</li>
+                                <li class="list-group-item" id="ans2" value="2">answer 2</li>
+                                <li class="list-group-item" id="ans3" value="3">answer 3</li>
+                                <li class="list-group-item" id="ans4" value="4">answer 4</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>             
+            
+            <div class="flex-container bg-transparent d-flex align-items-center" id="resultForm">
+                    <h3 id="results">Press the button to begin!</h3>
+                </div>
+            <button type="button" class="btn btn-dark bg-transparent" id="startButton"><span id="btn-text">Begin!</span></button>
+            
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="assets\javascript\confetti\confetti.js"></script>
+    <script src="assets\javascript\app.js"></script>    
 </body>
+
 </html>
