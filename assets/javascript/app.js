@@ -7,27 +7,83 @@ var allQuestions = [{
     a4: "Spot",
     correct: "Ghost"
 }, {
-    q: "biggest animal",
-    a1: "dog",
-    a2: "mouse",
-    a3: "elephant",
-    a4: "cantaloupe",
-    correct: "elephant"
+    q: "Which name is given to the bastards of The Reach?",
+    a1: "Sand",
+    a2: "Fog",
+    a3: "Snow",
+    a4: "Flowers",
+    correct: "Flowers"
 }, {
-    q: "cheapest car",
-    a1: "lambo",
-    a2: "kia",
-    a3: "volvo",
-    a4: "radio flyer",
-    correct: "kia"
+    q: "Which House is a direct vassal of House Baratheon of King's Landing?",
+    a1: "Samwell",
+    a2: "Stokeworth",
+    a3: "Varys",
+    a4: "Viserys",
+    correct: "Stokeworth"
 }, {
-    q: "color of sky",
-    a1: "red",
-    a2: "white",
-    a3: "blue",
-    a4: "mauve",
-    correct: "blue"
-}]
+    q: "In the first episode, King Robert Baratheon says \"In my dreams, I kill him every night.\" To whom is the King referring and why?",
+    a1: "Rhaegar",
+    a2: "Tyrion",
+    a3: "Jaime",
+    a4: "Podrick",
+    correct: "Rhaegar"
+}, {
+    q: "At Hoster Tully's funeral, who shot the burning arrow that hit its mark?",
+    a1: "Edmund Tully",
+    a2: "Brynden Tully",
+    a3: "Dickon Tully",
+    a4: "Catelyn Tully",
+    correct: "Brynden Tully"
+}, {
+    q: "Which name is given to the bastards of Dorne?",
+    a1: "Stone",
+    a2: "Hill",
+    a3: "Sand",
+    a4: "Flowers",
+    correct: "Sand"
+}, {
+    q: "In season 2, who does Tyrion tell Varys he is planning on marrying to Princess Myrcella?",
+    a1: "Joffrey Lannister",
+    a2: "Bronn",
+    a3: "Gendry",
+    a4: "Theon Greyjoy",
+    correct: "Theon Greyjoy"
+}, {
+    q: "How many fingertips did Stannis Baratheon chop off of Davos' hand(s)?",
+    a1: "1",
+    a2: "2",
+    a3: "4",
+    a4: "8",
+    correct: "4"
+}, {
+    q: "Who is king of Westeros when the the series begins?",
+    a1: "Robert Baratheon",
+    a2: "Tywin Lannister",
+    a3: "Euron Greyjoy",
+    a4: "Renly Baratheon",
+    correct: "Robert Baratheon"
+}, {
+    q: "What is Olenna's relationship to Mace Tyrell?",
+    a1: "Mother",
+    a2: "Sister",
+    a3: "Daughter",
+    a4: "Lover",
+    correct: "Mother"
+}, {
+    q: "Which name is given to the bastards of The Westerlands?",
+    a1: "Snow",
+    a2: "Hill",
+    a3: "Sand",
+    a4: "Stone",
+    correct: "Westeros"
+}, {
+    q: "\"I always hated crossbows. Take too long to load!\"",
+    a1: "Rodrik Cassel",
+    a2: "Jory Cassel",
+    a3: "Robb Stark",
+    a4: "Yoren",
+    correct: "Yoren"
+},]
 
 
 var roundDuration = 10
@@ -36,7 +92,6 @@ var curIndex = -1
 var gameRunning = false
 var answeredCorrectly = 0
 var answeredIncorrectly = 0
-var totalScore = 0;
 var correctAnswer = ""
 
 window.onload = function () {
