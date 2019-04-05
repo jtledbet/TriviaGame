@@ -1,11 +1,11 @@
 
 var allQuestions = [{
-    q: "color of sky",
-    a1: "red",
-    a2: "white",
-    a3: "blue",
-    a4: "mauve",
-    correct: "blue"
+    q: "What is the name of Jon's direwolf?",
+    a1: "Summer",
+    a2: "Longclaw",
+    a3: "Ghost",
+    a4: "Spot",
+    correct: "Ghost"
 }, {
     q: "biggest animal",
     a1: "dog",
@@ -21,24 +21,28 @@ var allQuestions = [{
     a4: "radio flyer",
     correct: "kia"
 }, {
-    q: "What is the name of Jon's direwolf?",
-    a1: "Summer",
-    a2: "Longclaw",
-    a3: "Ghost",
-    a4: "Spot",
-    correct: "Ghost"
+    q: "color of sky",
+    a1: "red",
+    a2: "white",
+    a3: "blue",
+    a4: "mauve",
+    correct: "blue"
 }]
+
 
 var roundDuration = 10
 var countDown = 0
-var questionTime = 0
 var curIndex = -1
 var gameRunning = false
 var answeredCorrectly = 0
 var answeredIncorrectly = 0
+var totalScore = 0;
 var correctAnswer = ""
 
 window.onload = function () {
+
+    // startGame();
+    $("#scoreBox").hide();
     $("#startButton").on("click", function () {
         if (!gameRunning) {
             startGame();
@@ -49,7 +53,6 @@ window.onload = function () {
 
     $(".list-group-item").on("click", function () {
         if (gameRunning) {
-
             if (this.textContent === correctAnswer) {
                 answeredRight(this, correctAnswer);
             } else {
@@ -57,17 +60,39 @@ window.onload = function () {
             }
         }
     });
+   
+    $("#restartButton").on("click", function () {
+
+        curIndex = -1
+        answeredCorrectly = 0
+        answeredCorrectly = 0
+        totalScore = 0
+
+        startGame();
+        $("#main").show();
+        $("#scoreBox").hide();
+    
+    });
+
+    $("#clock").on("click", function () {
+        scoreScreen();
+    });
 }
 
 function startGame() {
+    
     console.log(curIndex)
     curIndex++;
+
     if (curIndex < allQuestions.length) {
         gameRunning = true;
         stopConfetti();
         newQuestion();
         startTimer(roundDuration);    
-    } else $("#results").text("All out of questions. Sorry.")
+    } else {
+        $("#results").text("All out of questions. Game over.")
+        setTimeout(scoreScreen, 3000)
+    }
 
 }
 
@@ -112,7 +137,8 @@ function startTimer(duration, display) {
         $("#clock").text(minutes + ":" + seconds);
 
         if (--timer < 0) {
-            $("#results").text("Time's up! The correct answer was " + correctAnswer + ".")
+            $("#results").html("Time's up! The correct answer was " + correctAnswer + ". <br>"
+            + "Prepare for the next question.")
             timeUp();
         }
     }, 1000);
@@ -121,6 +147,7 @@ function startTimer(duration, display) {
 function answeredRight(selected, corAns) {
     answeredCorrectly++;
     selected.style.backgroundColor = "#7FFF00"
+    
     $("#results").text("Correct! Prepare for the next question.")
 
     resetClock();
@@ -133,7 +160,9 @@ function answeredRight(selected, corAns) {
 function answeredWrong(selected, corAns) {
     answeredIncorrectly++;
     selected.style.backgroundColor = "#FD0000"
-    $("#results").text("Incorrect! The correct answer was " + corAns + ".")
+    
+    $("#results").html("Incorrect! The correct answer was " + corAns + ". <br>"
+    + "Prepare for the next question.")
 
     highlightCorrect(corAns);
 
@@ -144,6 +173,7 @@ function answeredWrong(selected, corAns) {
 }
 
 function timeUp() {
+    answeredIncorrectly++;
     resetClock();
 
     highlightCorrect(correctAnswer);
@@ -151,7 +181,6 @@ function timeUp() {
     gameRunning = false;
     setTimeout(startGame, 3000)
 }
-
 
 function highlightCorrect(corAns) {
     for (i = 1; i < 4; i++) {
@@ -165,10 +194,25 @@ function highlightCorrect(corAns) {
 function resetClock() {
     clearInterval(countDown)
     $("#clock").text(timeConverter(roundDuration))
-    $("#btn-text").text("Next question!")
+    $("#btn-text").text("")
     // $("#startButton").show();
 }
 
+function scoreScreen() {
+    console.log("calculating score")
+    $("#totalQuestions").html("Total Questions: " + allQuestions.length)
+    $("#correctAnswers").html("Correct Answers: " + answeredCorrectly)
+    $("#incorrectAnswers").html("Incorrect Answers: " + answeredIncorrectly)
+    $("#finalScore").html("Final Score: " + calcScore(allQuestions.length, answeredCorrectly) + "%")
+
+    $("#main").hide();
+    $("#scoreBox").show();
+}
+
+function calcScore (totalQs, correctQs) {
+    var score = (100 / totalQs) * correctQs;
+    return score;
+}
 
 function timeConverter(t) {
 

@@ -19,7 +19,7 @@
 
             <div class="card">
                 <div class="flex-container p-2 bd-highlight card-header">
-                    <h2 id="questionBox">Question goes here?</h2>
+                    <h2 id="questionBox">Welcome to Game of Thrones Trivia!</h2>
                 </div>
             </div>
             
@@ -27,10 +27,10 @@
                 <div class="form-column">
                     <div class="col-auto">
                             <ul class="list-group">
-                                <li class="list-group-item" id="ans1" value="1">answer 1</li>
-                                <li class="list-group-item" id="ans2" value="2">answer 2</li>
-                                <li class="list-group-item" id="ans3" value="3">answer 3</li>
-                                <li class="list-group-item" id="ans4" value="4">answer 4</li>
+                                <li class="list-group-item" id="ans1" value="1"> </li>
+                                <li class="list-group-item" id="ans2" value="2"> </li>
+                                <li class="list-group-item" id="ans3" value="3"> </li>
+                                <li class="list-group-item" id="ans4" value="4"> </li>
                             </ul>
                         </div>
                     </div>
@@ -41,11 +41,17 @@
                     <h3 id="results">Press the button to begin!</h3>
                 </div>
             <button type="button" class="btn btn-dark bg-transparent" id="startButton"><span id="btn-text">Begin!</span></button>
-            
             </div>
-
-
         </div>
+    </div>
+
+    <div class="flex-container align-items-center" id="scoreBox">
+        <h3 id="totalQuestions">Total Questions: </h3>
+        <h3 id="correctAnswers">Correct Answers: </h3>
+        <h3 id="incorrectAnswers">Incorrect Answers: </h3>
+        <h3 id="finalScore">Final Score: </h3>
+
+        <button type="button" class="btn btn-dark bg-transparent" id="restartButton"><span id="btn-text">Play again?</span></button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

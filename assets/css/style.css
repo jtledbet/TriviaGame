@@ -18,15 +18,19 @@ body {
 #clock {
     font-family: impact;
     font-size: 72px;
-    color: green;
+    color: #7FFF00;
     margin-bottom: 35px;
+}
+
+#scoreBox {
+    /* visibility: hidden; */
+    margin-top: 30px;
 }
 
 .flex-container {
     display: flex;
     flex-direction: column;
     margin: auto;
-    /* visibility: hidden; */
 }
 
 .card {
@@ -40,18 +44,12 @@ body {
     margin: 0;
 }
 
-.form-check:hover {
-    color: green;
-    font-size: 22px;
-}
-
 .list-group {
     color: black;
 }
 
 .list-group-item:hover {
-    color: green;
-    font-style: bold;
+    font-weight: bold;
 }
 
 #results {
