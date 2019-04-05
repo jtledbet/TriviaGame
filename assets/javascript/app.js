@@ -120,8 +120,7 @@ window.onload = function () {
 
         curIndex = -1
         answeredCorrectly = 0
-        answeredCorrectly = 0
-        totalScore = 0
+        answeredIncorrectly = 0
 
         startGame();
         $("#main").show();
@@ -265,7 +264,7 @@ function scoreScreen() {
 }
 
 function calcScore (totalQs, correctQs) {
-    var score = (100 / totalQs) * correctQs;
+    var score = Math.round((100 / totalQs) * correctQs);
     return score;
 }
 
