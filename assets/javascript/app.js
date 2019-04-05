@@ -93,6 +93,7 @@ var gameRunning = false
 var answeredCorrectly = 0
 var answeredIncorrectly = 0
 var correctAnswer = ""
+var questionsAsked = 0
 
 window.onload = function () {
 
@@ -128,9 +129,10 @@ window.onload = function () {
     
     });
 
-    $("#clock").on("click", function () {
-        scoreScreen();
-    });
+    // this was for debug:
+    // $("#clock").on("click", function () {
+    //     scoreScreen();
+    // });
 }
 
 function startGame() {
@@ -152,6 +154,7 @@ function startGame() {
 
 function newQuestion() {
 
+    // return all answer panels to white
     for (i = 1; i <= 4; i++) {
         var item = "ans" + i;
         var itemObj = document.getElementById(item)
@@ -166,11 +169,6 @@ function newQuestion() {
     $("#ans2").text(allQuestions[curIndex].a2)
     $("#ans3").text(allQuestions[curIndex].a3)
     $("#ans4").text(allQuestions[curIndex].a4)
-
-    $("#ans1").attr("value", allQuestions[curIndex].correct)
-    $("#ans2").attr("value", allQuestions[curIndex].correct)
-    $("#ans3").attr("value", allQuestions[curIndex].correct)
-    $("#ans4").attr("value", allQuestions[curIndex].correct)
 
     $("#results").text("Make your selection!")
     correctAnswer = allQuestions[curIndex].correct;
