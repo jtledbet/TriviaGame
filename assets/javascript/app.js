@@ -20,13 +20,13 @@ var allQuestions = [{
     a3: "Varys",
     a4: "Viserys",
     correct: "Stokeworth"
-}, {
-    q: "In the first episode, King Robert Baratheon says \"In my dreams, I kill him every night.\" To whom is the King referring and why?",
-    a1: "Rhaegar",
-    a2: "Tyrion",
-    a3: "Jaime",
-    a4: "Podrick",
-    correct: "Rhaegar"
+},  {
+    q: "Who is king of Westeros when the the series begins?",
+    a1: "Robert Baratheon",
+    a2: "Tywin Lannister",
+    a3: "Euron Greyjoy",
+    a4: "Renly Baratheon",
+    correct: "Robert Baratheon"
 }, {
     q: "At Hoster Tully's funeral, who shot the burning arrow that hit its mark?",
     a1: "Edmund Tully",
@@ -55,14 +55,7 @@ var allQuestions = [{
     a3: "4",
     a4: "8",
     correct: "4"
-}, {
-    q: "Who is king of Westeros when the the series begins?",
-    a1: "Robert Baratheon",
-    a2: "Tywin Lannister",
-    a3: "Euron Greyjoy",
-    a4: "Renly Baratheon",
-    correct: "Robert Baratheon"
-}, {
+},  {
     q: "What is Olenna's relationship to Mace Tyrell?",
     a1: "Mother",
     a2: "Sister",
@@ -76,6 +69,13 @@ var allQuestions = [{
     a3: "Sand",
     a4: "Stone",
     correct: "Hill"
+}, {
+    q: "In the first episode, King Robert Baratheon says \"In my dreams, I kill him every night.\" <br>To whom is the King referring?",
+    a1: "Rhaegar",
+    a2: "Tyrion",
+    a3: "Jaime",
+    a4: "Podrick",
+    correct: "Rhaegar"
 }, {
     q: "\"I always hated crossbows. Take too long to load!\"",
     a1: "Rodrik Cassel",
@@ -139,10 +139,10 @@ function startGame() {
     
     console.log(curIndex)
     curIndex++;
+    stopConfetti();
 
     if (curIndex < allQuestions.length) {
         gameRunning = true;
-        stopConfetti();
         newQuestion();
         startTimer(roundDuration);    
     } else {
@@ -163,7 +163,7 @@ function newQuestion() {
 
     }
 
-    $("#questionBox").text(allQuestions[curIndex].q)
+    $("#questionBox").html(allQuestions[curIndex].q)
 
     $("#ans1").text(allQuestions[curIndex].a1)
     $("#ans2").text(allQuestions[curIndex].a2)
@@ -263,6 +263,7 @@ function scoreScreen() {
 
 function calcScore (totalQs, correctQs) {
     var score = Math.round((100 / totalQs) * correctQs);
+    if (score >= 75) startConfetti();
     return score;
 }
 
